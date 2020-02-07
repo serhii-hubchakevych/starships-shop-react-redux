@@ -9,7 +9,6 @@ import "./thank-you-modal.css";
 
 const ThankYouModal = props => {
   const { closeThankYouModal } = props;
-
   return (
     <div className="full-size-container">
       <DoneAllIcon

@@ -11,11 +11,13 @@ import Grid from "@material-ui/core/Grid";
 import "./starships-list-item.css";
 
 const StarshipsListItem = ({ starship, starshipAddedToCart, starships }) => {
+  
   const { name, model, costInCredits, img, id } = starship;
+  
   return (
     <Grid item xs={12} sm={6} md={6} >
       <Card variant="outlined">
-        <CardActionArea onClick={() => starshipAddedToCart(id, starships)}>
+        <CardActionArea  disabled={costInCredits > 0 ? false : true} onClick={() => starshipAddedToCart(id, starships)} >
           <CardMedia
             component="img"
             alt="Starship Image"

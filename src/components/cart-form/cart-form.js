@@ -29,9 +29,9 @@ const Form = props => {
     <form
       onSubmit={handleSubmit(
         items =>
-          orderService.sendOrderToDB(items).then(
-            res => res !== true ? alert("Rejected: " + res) : orderCreated() 
-          )
+          orderService.sendOrderToDB(items)
+          .then( () => orderCreated() )
+          .catch( err => alert(err) )
       )}
     >
       <div className="form-group">

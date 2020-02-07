@@ -22,13 +22,12 @@ const Cart = props => {
     thankYouModalVisibility
   } = props;
 
-  if(thankYouModalVisibility){
-    return <ThankYouModal cartItems={cartItems} orderTotal={orderTotal}/>
+  if (thankYouModalVisibility) {
+    return <ThankYouModal />;
   }
 
   return (
     <div className="container mrg-container">
-
       {cartItems.length > 0 ? (
         <div className="card shopping-cart">
           <div className="card-body">
@@ -70,7 +69,9 @@ const Cart = props => {
   );
 };
 
-const mapStateToProps = ({ cartReducer: { cartItems, orderTotal, thankYouModalVisibility } }) => ({
+const mapStateToProps = ({
+  cartReducer: { cartItems, orderTotal, thankYouModalVisibility }
+}) => ({
   cartItems,
   orderTotal,
   thankYouModalVisibility
