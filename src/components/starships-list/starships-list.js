@@ -25,7 +25,7 @@ class StarshipsList extends Component {
   }
 
   render() {
-    const { starships, loading } = this.props;
+    const { starships, loading, starshipAddedToCart } = this.props;
 
     if (loading) {
       return <Spinner />;
@@ -36,7 +36,7 @@ class StarshipsList extends Component {
         <Grid container spacing={6}>
           {starships.map(starship => {
             return (
-              <StarshipsListListItem key={starship.id} starship={starship} />
+              <StarshipsListListItem key={starship.id} starship={starship} starshipAddedToCart={starshipAddedToCart} starships={starships}/>
             );
           })}
         </Grid>

@@ -1,9 +1,10 @@
 import React from 'react';
 
+import Cart from '../cart'
 
 const CartPage = () => {
     return (
-       <h1>CART</h1>
+        <Cart />
     )
 }; 
 

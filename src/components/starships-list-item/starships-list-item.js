@@ -10,10 +10,11 @@ import Grid from "@material-ui/core/Grid";
 
 import "./starships-list-item.css";
 
-const StarshipsListItem = ({ starship, starshipAddedToCart }) => {
-  const { name, model, costInCredits, img } = starship;
+const StarshipsListItem = ({ starship, starshipAddedToCart, starships }) => {
 
+  const { name, model, costInCredits, img, id } = starship;
   return (
+    
     <Grid item xs={12} sm={6} md={6}>
       <Card variant="outlined">
         <CardActionArea>
@@ -46,6 +47,7 @@ const StarshipsListItem = ({ starship, starshipAddedToCart }) => {
             variant="outlined"
             color="secondary"
             disabled={costInCredits > 0 ? false : true}
+            onClick={()=>starshipAddedToCart(id, starships)}
           >
             Add to cart
           </Button>

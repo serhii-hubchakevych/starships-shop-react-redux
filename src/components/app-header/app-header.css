@@ -1,7 +1,17 @@
 .mrg-right{
     margin-left: auto;
-    margin-right: 10px;
     font-family: monospace;
+}
+.right-parts-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    font-family: monospace;
+}
+
+.total-cart-price{
+  margin-right: 20px;
 }
 
 .MuiAppBar-colorPrimary {

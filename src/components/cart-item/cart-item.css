@@ -1,0 +1,16 @@
+.mrg-left{
+    margin-left:20px;
+}
+
+input.qty{
+    text-align: center !important;
+}
+
+.product-name{
+    font-family: monospace;
+    margin: 0;
+}
+
+.product-desc{
+    font-family: monospace; 
+}
