@@ -1,0 +1,85 @@
+.mrg-right{
+    margin-left: auto;
+    margin-right: 10px;
+    font-family: monospace;
+}
+
+.MuiAppBar-colorPrimary {
+  color: #fff;
+  background-color: black !important;
+}
+
+.cmp-name{
+    color: white;
+    font-family: monospace;
+    margin: 0;
+    overflow: hidden;
+    margin-bottom: 0px;
+    line-height: unset;
+    font-size: 30px;
+    border-right: .17em solid rgb(255, 155, 155);  
+    white-space: nowrap;  
+    animation:  
+    typing 3.5s steps(30, end),
+    blink-caret .7s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: red }
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.cart-desc{
+    font-family: monospace;
+    font-size: 20px;
+    color:white;
+}
+
+.MuiSvgIcon-root.cart-icon{
+    margin-right: 10px;
+    color: red;
+    width: 40px;
+    height: 40px;
+}
+
+.cart-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.cart-icon:hover{
+    animation: 1s linear 0s normal none infinite running rot;
+    -webkit-animation: 1s linear 0s normal none infinite running rot;
+}
+
+@keyframes rot {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes rot {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
