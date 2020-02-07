@@ -1,17 +1,34 @@
 const initState = {
-    starships: [],
-    loading: true,
-    cartItems: localStorage.getItem('cartItems') !== undefined ? localStorage.getItem('cartItems') !== null ? JSON.parse(localStorage.getItem('cartItems')) : [] : [],
-    orderTotal: localStorage.getItem('orderTotal') !== undefined ? localStorage.getItem('orderTotal') !== null ? JSON.parse(localStorage.getItem('orderTotal')) : 0 : 0
+  starships: [],
+  loading: true,
+};
+
+const starshipsLoaded = (state, action) => {
+  return {
+    ...state,
+    starships: action.payload,
+    loading: false
   };
-  
-  
-  const starshipsReducer = (state = initState, action) => {
-    switch (action.type) {
-      default:
-        return state;
-    }
+};
+
+const starshipsRequested = (state, action) => {
+  return {
+    ...state,
+    starships: action.payload,
+    loading: true
   };
-  
-  
-  export default starshipsReducer;
+};
+
+const starshipsReducer = (state = initState, action) => {
+  switch (action.type) {
+    case "STARSHIPS_REQUESTED":
+      return starshipsRequested(state, action);
+    case "STARSHIPS_LOADED":
+      return starshipsLoaded(state, action);
+
+    default:
+      return state;
+  }
+};
+
+export default starshipsReducer;

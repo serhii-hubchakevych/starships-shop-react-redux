@@ -1,10 +1,11 @@
 import React from "react";
 
+import StarshipsList from "../starships-list";
 
 const HomePage = () => {
 
     return (
-        <h1>HOME</h1>
+        <StarshipsList />
     )
 }; 
 
