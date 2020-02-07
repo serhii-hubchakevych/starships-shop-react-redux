@@ -1,0 +1,11 @@
+.out-of-stock{
+    margin-bottom: 0;
+    margin-left: 20px;
+    color: red;
+    font-family: monospace;
+}
+
+.actions-container{
+    display: flex;
+    align-items: center;
+}

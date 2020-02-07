@@ -1,4 +1,5 @@
 const initState = {
+  thankYouModalVisibility: false,
   cartItems: localStorage.getItem("cartItems") !== undefined && localStorage.getItem("cartItems") !== null ? JSON.parse(localStorage.getItem("cartItems")) : [],
   orderTotal: localStorage.getItem("orderTotal") !== undefined && localStorage.getItem("orderTotal") !== null ? JSON.parse(localStorage.getItem("orderTotal")) : 0
 };
@@ -33,11 +34,13 @@ const addStarshipToCart = (state, action) => {
 
   if (itemIndex < 0) {
     return {
+      ...state,
       orderTotal: orderTotal,
       cartItems: [...state.cartItems, newStarship]
     };
   } else {
     return {
+      ...state,
       orderTotal: orderTotal,
       cartItems: [
         ...state.cartItems.slice(0, itemIndex),
@@ -104,6 +107,17 @@ const decreaseStarships = (state, action) => {
   };
 };
 
+const orderCreated = (state) => {
+  localStorage.removeItem("cartItems");
+  localStorage.removeItem("orderTotal");
+  return {
+    ...state,
+    thankYouModalVisibility: true,
+    cartItems: [],
+    orderTotal: 0
+  };
+};
+
 const cartReducer = (state = initState, action) => {
   switch (action.type) {
     case "STARSHIP_ADDED_TO_CART":
@@ -112,14 +126,14 @@ const cartReducer = (state = initState, action) => {
       return increaseStarships(state, action);
     case "STARSHIP_DECREASED":
       return decreaseStarships(state, action);
-    case "ORDER_CREATED":
-      localStorage.removeItem("cartItems");
-      localStorage.removeItem("orderTotal");
+    case "CLOSE_THANK_YOU_MODAL":
       return {
         ...state,
-        cartItems: [],
-        orderTotal: 0
-      };
+        thankYouModalVisibility: false,
+      }
+    case "ORDER_CREATED":
+      return orderCreated(state);
+    
     default:
       return state;
   }

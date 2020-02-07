@@ -42,11 +42,18 @@ const orderCreated = () => {
     }
 }
 
+const closeThankYouModal = () => {
+    return {
+        type: 'CLOSE_THANK_YOU_MODAL'
+    }
+}
+
 export { 
     starshipsLoaded,
     starshipsRequested,
     starshipAddedToCart,
     increaseStarship,
     decreaseStarship,
-    orderCreated
+    orderCreated,
+    closeThankYouModal
 };

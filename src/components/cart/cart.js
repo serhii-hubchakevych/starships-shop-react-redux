@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import "./cart.css";
 import CartItem from "../cart-item";
+import ThankYouModal from "../thank-you-modal";
 import Form from "../cart-form";
 import {
   increaseStarship,
@@ -17,11 +18,17 @@ const Cart = props => {
     orderTotal,
     decreaseStarship,
     increaseStarship,
-    orderCreated
+    orderCreated,
+    thankYouModalVisibility
   } = props;
+
+  if(thankYouModalVisibility){
+    return <ThankYouModal cartItems={cartItems} orderTotal={orderTotal}/>
+  }
 
   return (
     <div className="container mrg-container">
+
       {cartItems.length > 0 ? (
         <div className="card shopping-cart">
           <div className="card-body">
@@ -63,9 +70,10 @@ const Cart = props => {
   );
 };
 
-const mapStateToProps = ({ cartReducer: { cartItems, orderTotal } }) => ({
+const mapStateToProps = ({ cartReducer: { cartItems, orderTotal, thankYouModalVisibility } }) => ({
   cartItems,
-  orderTotal
+  orderTotal,
+  thankYouModalVisibility
 });
 
 const mapDispatchToProps = { increaseStarship, decreaseStarship, orderCreated };

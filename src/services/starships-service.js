@@ -26,7 +26,7 @@ class StarshipService {
           id: this._extractId(starship),
           name: starship.name,
           model: starship.model,
-          costInCredits: starship.cost_in_credits / 10,
+          costInCredits: starship.cost_in_credits,
           img: this.getStrashipsImage(this._extractId(starship))
         }
       }
